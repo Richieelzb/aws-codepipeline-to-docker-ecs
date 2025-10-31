@@ -2,14 +2,14 @@ version: 0.2
 env:
   variables:
     ECR_REPO_NAME: lzb-project-repo
-  parameter-store:
-    DOCKERHUB_TOKEN: /dockerhub/token
-    DOCKERHUB_USER: /dockerhub/user
+ # parameter-store:
+ #   DOCKERHUB_TOKEN: /dockerhub/token
+ #   DOCKERHUB_USER: /dockerhub/user
 phases:
   pre_build:
     commands:
     # Docker login
-      - echo ${DOCKERHUB_TOKEN} | docker login -u ${DOCKERHUB_USER} --password-stdin
+  #    - echo ${DOCKERHUB_TOKEN} | docker login -u ${DOCKERHUB_USER} --password-stdin
     
     #ECR login
       - ECR_MAIN_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
